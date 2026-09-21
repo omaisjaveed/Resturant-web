@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: var(--font-inter);
+  --font-outfit: var(--font-outfit);
+
+  --color-gold: #E8B904;
+  --color-accent-gold: #CFA203;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-gold selection:bg-gold selection:text-black;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, transparent, #E8B904 10%, #E8B904 90%, transparent);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:horizontal {
+    background: linear-gradient(to right, transparent, #E8B904 10%, #E8B904 90%, transparent);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, transparent, #CFA203 10%, #CFA203 90%, transparent);
+  }
+  
+  ::-webkit-scrollbar-thumb:horizontal:hover {
+    background: linear-gradient(to right, transparent, #CFA203 10%, #CFA203 90%, transparent);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(232, 185, 4, 0.3);
+    border-radius: 10px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(232, 185, 4, 0.5);
+  }
+  .animate-flow {
+    animation: flow 5s ease infinite;
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
